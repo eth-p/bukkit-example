@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'dev.ethp.bukkit' version '0.2.3'
+}
+
+dependencies {
+    bukkitApi()
+    vaultApi()
+}
+
+group 'com.example.bukkit'
+version = '1.0'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+bukkit {
+    name rootProject.name
+    main 'com.example.BukkitPlugin'
+
+    description 'A plugin that says hello.'
+
+    author 'your name'
+
+    api {
+        version '1.14.4'
+    }
+
+    command 'hello', {
+        permission 'hello.command'
+        description 'Says hello!'
+        usage 'Usage: /hello'
+    }
+
+    permission 'hello.command', {
+        description 'Gives access to /hello'
+        allow ALL
+    }
+
+    dependency 'Vault'
+}
